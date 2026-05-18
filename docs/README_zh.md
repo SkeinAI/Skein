@@ -55,25 +55,9 @@ Skein 是一款桌面应用程序，为具备工具编排能力的 AI 智能体�
 - Node.js 18+
 - npm 或 yarn
 
-### 本地依赖配置（重要）
+### 依赖项配置
 
-本项目目前依赖 `langgraph-rust` 的本地路径：
-
-```toml
-# LangGraph (local path to Rust reimplementation)
-langgraph                    = { path = "../langgraph-rust/crates/langgraph" }
-langgraph-derive             = { path = "../langgraph-rust/crates/langgraph-derive" }
-langgraph-checkpoint         = { path = "../langgraph-rust/crates/langgraph-checkpoint" }
-langgraph-checkpoint-sqlite  = { path = "../langgraph-rust/crates/langgraph-checkpoint-sqlite" }
-langgraph-prebuilt           = { path = "../langgraph-rust/crates/langgraph-prebuilt" }
-langgraph-providers          = { path = "../langgraph-rust/crates/langgraph-providers", features = ["openai", "anthropic"] }
-```
-
-要成功编译和运行 Skein，您**必须**执行以下步骤：
-1. 从 [https://github.com/Onelevenvy/langgraph-rust](https://github.com/Onelevenvy/langgraph-rust) 克隆 `langgraph-rust` 仓库。
-2. 将克隆得到的 `langgraph-rust` 文件夹放置在与本 `skein` 项目文件夹**相同的父级目录下**（以便相对路径 `../langgraph-rust` 能够正确解析）。
-
-*注：这些依赖后续将会发布到 crates.io，届时将不再需要配置本地路径。*
+本项目依赖于 [langgraph-rs](https://github.com/Onelevenvy/langgraph-rs)。它已作为 Git 依赖直接配置在 `Cargo.toml` 中，在编译时会自动拉取。
 
 ### 编译与运行
 
