@@ -11,7 +11,7 @@ use tokio::sync::Mutex;
 
 use skein_agent::agent_setup::{AgentBuilder, AssistantOverrides};
 use skein_agent::engine::AgentEngine;
-use skein_agent::output::OutputSink;
+use skein_agent::sinks::OutputSink;
 use skein_core::config::settings::{CliArgs, Config};
 use skein_core::db::DbManager;
 use skein_core::ipc_interface::approval::{ToolApprovalManager, ToolApprovalResult};

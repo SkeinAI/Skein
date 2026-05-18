@@ -7,7 +7,7 @@ use skein_skills::prompt::format_skills_within_budget;
 use skein_skills::types::SkillMetadata;
 
 use crate::agents_md;
-use crate::plan::prompt as plan_prompt;
+use crate::tools::plan::prompt as plan_prompt;
 
 /// Session-scoped cache for system prompt sections.
 ///
