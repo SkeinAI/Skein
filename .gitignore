@@ -1,0 +1,68 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+./skein-ui/.claude
+# Cargo lock (binary project should commit it, but ignore for libraries)
+# Cargo.lock  # keep committed for binary projects
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+.tmp/
+
+# Git worktrees
+.worktree/
+.worktrees/
+worktree/
+worktrees/
+
+# skein session data
+.skein/
+
+# Debug artifacts
+*.pdb
+*.dSYM/
+
+# Test coverage
+*.profraw
+*.profdata
+tarpaulin-report.html
+lcov.info
+coverage/
+
+# Superpowers brainstorm tool (runtime files, session data)
+.superpowers/
+docs/superpowers/
+
+# Superset
+.superset/
+.skeinrs/*
+
+checkpoints.db
+checkpoints.db-shm
+checkpoints.db-wal
+
+skein_install/workspace/*
+skein_install/*.db
+skein_install/*.db-shm
+skein_install/*.db-wal
+
+crates/skein-app/
+.config/*
+.cargo
+
+
+
+

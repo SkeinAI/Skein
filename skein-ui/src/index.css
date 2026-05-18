@@ -1,0 +1,299 @@
+/* =====================================================
+   Skein Agent UI — Global Styles
+   ===================================================== */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- Reset & base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Light theme (default) ---- */
+[data-theme="light"] {
+  color-scheme: light;
+  --skein-bg-deepest: #f0f2f5;
+  --skein-bg-deep: #f7f8fa;
+  --skein-bg-base: #ffffff;
+  --skein-bg-raised: #ffffff;
+  --skein-bg-surface: #f8f9fa;
+  --skein-bg-hover: #f1f3f5;
+  --skein-border-subtle: #e9ecef;
+  --skein-border-dim: #dee2e6;
+  --skein-border-base: #ced4da;
+  --skein-text-muted: #adb5bd;
+  --skein-text-dim: #868e96;
+  --skein-text-secondary: #495057;
+  --skein-text-primary: #343a40;
+  --skein-text-bright: #212529;
+  --skein-accent: #6366f1;
+  --skein-accent-soft: rgba(99, 102, 241, 0.08);
+}
+
+/* ---- Dark theme ---- */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --skein-bg-deepest: #0f0f13;
+  --skein-bg-deep: #14141a;
+  --skein-bg-base: #1c1d24;
+  --skein-bg-raised: #262730;
+  --skein-bg-surface: #181920;
+  --skein-bg-hover: #23242e;
+  --skein-border-subtle: rgba(255, 255, 255, 0.05);
+  --skein-border-dim: rgba(255, 255, 255, 0.08);
+  --skein-border-base: rgba(255, 255, 255, 0.15);
+  --skein-text-muted: #6c7086;
+  --skein-text-dim: #888d9e;
+  --skein-text-secondary: #a0a5b5;
+  --skein-text-primary: #cdd6f4;
+  --skein-text-bright: #eff1f5;
+  --skein-accent: #818cf8;
+  --skein-accent-soft: rgba(129, 140, 248, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--skein-bg-deepest);
+  color: var(--skein-text-secondary);
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.22);
+}
+
+/* ---- Cursor blink animation ---- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ---- Fade in animation (opacity only, no layout shift) ---- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- Pulse animation for active indicator dot ---- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* ---- Home input card focus ---- */
+.home-input-card:focus-within {
+  border-color: var(--skein-accent) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12), 0 8px 32px rgba(0,0,0,0.10) !important;
+}
+
+
+/* ---- Sidebar item hover ---- */
+.ws-item:hover {
+  background: var(--skein-bg-hover) !important;
+}
+
+/* ---- File tree item hover ---- */
+.file-item:hover {
+  background: var(--skein-bg-hover);
+}
+.file-item:hover .file-actions {
+  opacity: 1 !important;
+}
+
+/* ---- Input bar focus glow ---- */
+.input-bar-wrapper:focus-within {
+  border-color: var(--skein-accent) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ---- Tool approval inline buttons ---- */
+.approval-btn {
+  opacity: 0.85;
+  transition: opacity 0.12s ease;
+}
+.approval-btn:hover {
+  opacity: 1;
+}
+
+/* ---- Markdown body styles ---- */
+.markdown-body {
+  color: var(--skein-text-secondary);
+  word-break: break-word;
+  max-width: 68ch;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  color: var(--skein-text-bright);
+  font-weight: 600;
+  margin: 0.75em 0 0.4em;
+  line-height: 1.3;
+}
+
+.markdown-body h1 { font-size: 1.4em; }
+.markdown-body h2 { font-size: 1.2em; }
+.markdown-body h3 { font-size: 1.05em; }
+
+.markdown-body p {
+  margin: 0.4em 0;
+}
+
+.markdown-body p:first-child {
+  margin-top: 0;
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body code {
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.875em;
+  background: var(--skein-accent-soft);
+  border: 1px solid var(--skein-border-dim);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: #a5b4fc;
+}
+
+.markdown-body pre {
+  background: var(--skein-bg-deepest);
+  border: 1px solid var(--skein-border-subtle);
+  border-radius: 8px;
+  padding: 12px 16px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.markdown-body pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--skein-text-primary);
+  font-size: 13px;
+}
+
+.markdown-body blockquote {
+  background: var(--skein-accent-soft);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  color: var(--skein-text-dim);
+  font-style: italic;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.4em;
+  margin: 0.4em 0;
+}
+
+.markdown-body li {
+  margin: 0.2em 0;
+  line-height: 1.65;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--skein-border-subtle);
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.markdown-body th {
+  background: var(--skein-accent-soft);
+  font-weight: 600;
+  color: var(--skein-text-primary);
+}
+
+.markdown-body tr:nth-child(even) td {
+  background: rgba(99, 102, 241, 0.03);
+}
+
+.markdown-body a {
+  color: #818cf8;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid var(--skein-border-subtle);
+  margin: 12px 0;
+}
+
+.markdown-body strong {
+  color: var(--skein-text-bright);
+  font-weight: 600;
+}
+
+/* ---- Message animation ---- */
+.message-enter {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* ---- Surface card utility (tinted, no blur) ---- */
+.surface-card {
+  background: var(--skein-bg-raised);
+  border: 1px solid var(--skein-border-subtle);
+  border-radius: 12px;
+}
+
+/* ---- Hover background utility ---- */
+.hover-bg-raised:hover {
+  background: var(--skein-bg-hover);
+}
+
+/* ---- Card hover lift effect ---- */
+.hover-card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--skein-border-dim);
+}
+
+/* ---- Close button rotate effect ---- */
+.hover-rotate-close:hover {
+  transform: rotate(90deg);
+  background: var(--skein-bg-hover);
+}
