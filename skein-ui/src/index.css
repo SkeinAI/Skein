@@ -61,8 +61,8 @@ body, input, button, select, textarea {
   --skein-text-secondary: #d4d4d8; /* zinc-300 */
   --skein-text-primary: #f4f4f5; /* zinc-100 */
   --skein-text-bright: #ffffff;
-  --skein-accent: #36bffa; /* Dify classic blue in dark mode */
-  --skein-accent-soft: rgba(54, 191, 250, 0.12);
+  --skein-accent: #155aef; /* Solid classic blue globally */
+  --skein-accent-soft: rgba(21, 90, 239, 0.16);
   --mantine-color-dimmed: #a1a1aa;
 }
 
