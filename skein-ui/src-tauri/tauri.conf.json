@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Skein UI",
-  "version": "0.1.0",
+  "productName": "Skein",
+  "version": "0.2.0",
   "identifier": "com.skein.agent",
   "build": {
     "frontendDist": "../dist",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Skein Agent",
+        "title": "Skein",
         "width": 1400,
         "height": 800,
         "minWidth": 900,

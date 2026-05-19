@@ -256,7 +256,7 @@ function ExtraDirsModal({
             {dirs.map((d) => (
               <Group key={d} gap="xs" p="xs" style={{ borderRadius: 8, border: '1px solid var(--skein-border-subtle)', background: 'var(--skein-bg-surface)' }}>
                 <IconFolder size={16} color="var(--skein-text-dim)" />
-                <Text size="sm" style={{ flex: 1, fontFamily: 'monospace', wordBreak: 'break-all' }}>
+                <Text size="sm" style={{ flex: 1, fontFamily: 'var(--mantine-font-family-monospace)', wordBreak: 'break-all' }}>
                   {d}
                 </Text>
                 <Tooltip label={t('skills.skills.removeTooltip')}>

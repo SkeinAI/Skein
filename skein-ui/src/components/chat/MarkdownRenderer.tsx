@@ -53,7 +53,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
                     borderBottom: '1px solid rgba(255,255,255,0.05)',
                   }}
                 >
-                  <Text size="xs" c="dimmed" style={{ fontFamily: 'monospace' }}>
+                  <Text size="xs" c="dimmed" style={{ fontFamily: 'var(--mantine-font-family-monospace)' }}>
                     {lang}
                   </Text>
                   <CopyButton value={codeString} timeout={2000}>
@@ -98,10 +98,12 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             <code
               className={className}
               style={{
-                background: 'rgba(255, 255, 255, 0.08)',
+                background: 'var(--skein-bg-surface)',
+                color: 'var(--skein-accent)',
+                border: '1px solid var(--skein-border-dim)',
                 padding: '2px 6px',
                 borderRadius: '4px',
-                fontFamily: 'monospace',
+                fontFamily: 'var(--mantine-font-family-monospace)',
                 fontSize: '0.9em',
               }}
               {...props}

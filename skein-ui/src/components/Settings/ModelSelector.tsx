@@ -148,6 +148,7 @@ export function ModelSelector() {
         input: {
           background: 'var(--skein-bg-surface)',
           border: '1px solid var(--skein-border-dim)',
+          color: 'var(--skein-text-primary)',
           fontSize: 11,
           height: 28,
           minHeight: 28,
@@ -158,6 +159,7 @@ export function ModelSelector() {
         },
         option: {
           fontSize: 12,
+          color: 'var(--skein-text-primary)',
         },
       }}
     />

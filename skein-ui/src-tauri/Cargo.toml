@@ -1,6 +1,6 @@
 [package]
-name = "app"
-version = "0.1.0"
+name = "skein-desktop"
+version.workspace = true
 description = "Skein Agent Desktop UI"
 authors = ["Skein Team"]
 license = "Apache-2.0"

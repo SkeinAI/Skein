@@ -23,7 +23,7 @@ export function SkillsPage() {
       }}
     >
       <Group gap="sm" px="xl" pt="md" pb="sm">
-        <IconBolt size={22} color="var(--mantine-color-indigo-4)" />
+        <IconBolt size={22} color="var(--skein-accent)" />
         <Text fw={700} size="lg" style={{ color: 'var(--skein-text-bright)' }}>
           {t('skills.title')}
         </Text>

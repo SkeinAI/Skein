@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body, input, button, select, textarea {
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
 :root {
   font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.5;
@@ -21,43 +25,45 @@
 /* ---- Light theme (default) ---- */
 [data-theme="light"] {
   color-scheme: light;
-  --skein-bg-deepest: #f0f2f5;
-  --skein-bg-deep: #f7f8fa;
+  --skein-bg-deepest: #f2f4f7;
+  --skein-bg-deep: rgba(242, 244, 247, 0.9);
   --skein-bg-base: #ffffff;
   --skein-bg-raised: #ffffff;
-  --skein-bg-surface: #f8f9fa;
-  --skein-bg-hover: #f1f3f5;
-  --skein-border-subtle: #e9ecef;
-  --skein-border-dim: #dee2e6;
-  --skein-border-base: #ced4da;
-  --skein-text-muted: #adb5bd;
-  --skein-text-dim: #868e96;
-  --skein-text-secondary: #495057;
-  --skein-text-primary: #343a40;
-  --skein-text-bright: #212529;
-  --skein-accent: #6366f1;
-  --skein-accent-soft: rgba(99, 102, 241, 0.08);
+  --skein-bg-surface: #f9fafb;
+  --skein-bg-hover: rgba(16, 24, 40, 0.04);
+  --skein-border-subtle: rgba(16, 24, 40, 0.05);
+  --skein-border-dim: rgba(16, 24, 40, 0.08);
+  --skein-border-base: rgba(16, 24, 40, 0.14);
+  --skein-text-muted: #9ca3af; /* zinc-400 */
+  --skein-text-dim: #6b7280; /* zinc-500 */
+  --skein-text-secondary: #3f3f46; /* zinc-700 */
+  --skein-text-primary: #18181b; /* zinc-900 */
+  --skein-text-bright: #09090b; /* zinc-950 */
+  --skein-accent: #155aef; /* Dify classic core blue */
+  --skein-accent-soft: rgba(21, 90, 239, 0.08);
+  --mantine-color-dimmed: #6b7280;
 }
 
 /* ---- Dark theme ---- */
 [data-theme="dark"] {
   color-scheme: dark;
-  --skein-bg-deepest: #0f0f13;
-  --skein-bg-deep: #14141a;
-  --skein-bg-base: #1c1d24;
-  --skein-bg-raised: #262730;
-  --skein-bg-surface: #181920;
-  --skein-bg-hover: #23242e;
-  --skein-border-subtle: rgba(255, 255, 255, 0.05);
+  --skein-bg-deepest: #161618; /* Dify app-detail-bg core titanium dark */
+  --skein-bg-deep: #1c1c1f;
+  --skein-bg-base: #222225;
+  --skein-bg-raised: #2a2b2f;
+  --skein-bg-surface: #1c1c1f;
+  --skein-bg-hover: rgba(255, 255, 255, 0.06);
+  --skein-border-subtle: rgba(255, 255, 255, 0.04);
   --skein-border-dim: rgba(255, 255, 255, 0.08);
   --skein-border-base: rgba(255, 255, 255, 0.15);
-  --skein-text-muted: #6c7086;
-  --skein-text-dim: #888d9e;
-  --skein-text-secondary: #a0a5b5;
-  --skein-text-primary: #cdd6f4;
-  --skein-text-bright: #eff1f5;
-  --skein-accent: #818cf8;
-  --skein-accent-soft: rgba(129, 140, 248, 0.12);
+  --skein-text-muted: #52525b; /* zinc-600 */
+  --skein-text-dim: #a1a1aa; /* zinc-400 */
+  --skein-text-secondary: #d4d4d8; /* zinc-300 */
+  --skein-text-primary: #f4f4f5; /* zinc-100 */
+  --skein-text-bright: #ffffff;
+  --skein-accent: #36bffa; /* Dify classic blue in dark mode */
+  --skein-accent-soft: rgba(54, 191, 250, 0.12);
+  --mantine-color-dimmed: #a1a1aa;
 }
 
 body {
@@ -84,11 +90,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.12);
+  background: rgba(21, 90, 239, 0.15);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.22);
+  background: rgba(21, 90, 239, 0.3);
 }
 
 /* ---- Cursor blink animation ---- */
@@ -112,7 +118,7 @@ body {
 /* ---- Home input card focus ---- */
 .home-input-card:focus-within {
   border-color: var(--skein-accent) !important;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12), 0 8px 32px rgba(0,0,0,0.10) !important;
+  box-shadow: 0 0 0 3px rgba(21, 90, 239, 0.15), 0 8px 32px rgba(0,0,0,0.08) !important;
 }
 
 
@@ -132,7 +138,7 @@ body {
 /* ---- Input bar focus glow ---- */
 .input-bar-wrapper:focus-within {
   border-color: var(--skein-accent) !important;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(21, 90, 239, 0.18);
 }
 
 /* ---- Tool approval inline buttons ---- */
@@ -146,7 +152,7 @@ body {
 
 /* ---- Markdown body styles ---- */
 .markdown-body {
-  color: var(--skein-text-secondary);
+  color: var(--skein-text-primary);
   word-break: break-word;
   max-width: 68ch;
 }
@@ -180,11 +186,11 @@ body {
 .markdown-body code {
   font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
   font-size: 0.875em;
-  background: var(--skein-accent-soft);
+  background: var(--skein-bg-surface);
   border: 1px solid var(--skein-border-dim);
   border-radius: 4px;
-  padding: 1px 5px;
-  color: #a5b4fc;
+  padding: 2px 6px;
+  color: var(--skein-accent);
 }
 
 .markdown-body pre {
@@ -245,11 +251,11 @@ body {
 }
 
 .markdown-body tr:nth-child(even) td {
-  background: rgba(99, 102, 241, 0.03);
+  background: rgba(21, 90, 239, 0.03);
 }
 
 .markdown-body a {
-  color: #818cf8;
+  color: var(--skein-accent);
   text-decoration: none;
 }
 
@@ -286,10 +292,13 @@ body {
 }
 
 /* ---- Card hover lift effect ---- */
+.hover-card-lift {
+  transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
 .hover-card-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-color: var(--skein-border-dim);
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: 0 12px 24px rgba(21, 90, 239, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+  border-color: var(--skein-accent) !important;
 }
 
 /* ---- Close button rotate effect ---- */
