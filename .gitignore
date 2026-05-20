@@ -54,10 +54,10 @@ checkpoints.db
 checkpoints.db-shm
 checkpoints.db-wal
 
-skein_install/workspace/*
-skein_install/*.db
-skein_install/*.db-shm
-skein_install/*.db-wal
+skein-data/workspace/*
+skein-data/*.db
+skein-data/*.db-shm
+skein-data/*.db-wal
 
 crates/skein-app/
 .config/*

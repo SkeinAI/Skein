@@ -1,12 +1,12 @@
 use std::path::PathBuf;
 
 /// Default install root name.
-const DEFAULT_INSTALL_ROOT: &str = "skein_install";
+const DEFAULT_INSTALL_ROOT: &str = "skein-data";
 /// Default workspaces directory name.
 const DEFAULT_WORKSPACE_DIR: &str = "workspace";
 
 /// Get the app installation/data root directory.
-/// Priority: parent of `SKEIN_WORKSPACE_ROOT` if set, otherwise `<exe_dir>/skein_install`.
+/// Priority: parent of `SKEIN_WORKSPACE_ROOT` if set, otherwise `<exe_dir>/skein-data`.
 pub fn install_root() -> PathBuf {
     // 1. 优先使用环境变量（最高优先级）
     if let Ok(root_env) = std::env::var("SKEIN_WORKSPACE_ROOT") {
