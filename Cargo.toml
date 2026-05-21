@@ -27,7 +27,7 @@ skein-tools     = { path = "crates/skein-tools" }
 skein-skills    = { path = "crates/skein-skills" }
 skein-agent     = { path = "crates/skein-agent" }
 
-# LangGraph (local path to Rust reimplementation)
+# LangGraph (github path to Rust reimplementation)
 langgraph                    = { git = "https://github.com/Onelevenvy/langgraph-rust" }
 langgraph-derive             = { git = "https://github.com/Onelevenvy/langgraph-rust" }
 langgraph-checkpoint         = { git = "https://github.com/Onelevenvy/langgraph-rust" }
