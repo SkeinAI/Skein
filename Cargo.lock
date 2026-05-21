@@ -1252,6 +1252,7 @@ name = "skein-desktop"
 version = "0.2.0"
 dependencies = [
  "anyhow",
+ "base64 0.22.1",
  "chrono",
  "skein-agent",
  "skein-core",
@@ -1308,6 +1309,7 @@ version = "0.2.0"
 dependencies = [
  "anyhow",
  "async-trait",
+ "base64 0.22.1",
  "skein-core",
  "futures",
  "glob",
