@@ -84,8 +84,8 @@ pub async fn test_mcp_server(
             // Seed provider and tools into DB
             let provider_info = skein_core::types::tool::ProviderInfo {
                 provider_id: provider_id.clone(),
-                provider_name: format!("MCP: {}", server.name),
-                description: format!("MCP server: {}", server.name),
+                provider_name: skein_core::types::tool::I18nString::single(format!("MCP: {}", server.name)),
+                description: skein_core::types::tool::I18nString::single(format!("MCP server: {}", server.name)),
                 icon: None,
                 credentials_schema: None,
                 test_input: None,
