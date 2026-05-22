@@ -163,6 +163,7 @@ impl AgentBuilder {
             skein_tools::init_file_cache(Arc::clone(cache));
         }
 
+        skein_tools::init_workspace_dir(cwd_path.to_path_buf());
         let tool_set = skein_tools::all_tools();
         let mut registry = tool_set.registry;
         let provider_infos = tool_set.provider_infos;
