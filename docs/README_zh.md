@@ -24,6 +24,10 @@ Skein 是一款桌面应用程序，为具备工具编排能力的 AI 智能体�
 
 - **多服务商支持**：兼容 OpenAI 接口、Anthropic、AWS Bedrock、Google Vertex
 - **工具编排**：内置工具（读取、写入、编辑、Bash、Grep、Glob） + MCP（Model Context Protocol）服务器集成
+- **沙箱执行**：基于云端 Sandbox 容器的隔离执行环境，支持 VNC 桌面实时投屏和人工接管
+- **可视化工作流**：基于 ReactFlow 的可视化工作流编辑器，支持 10 种节点类型、条件路由、流式执行和人工介入
+- **浏览器工具**：基于 Playwright 的网页自动化，在沙箱内运行——支持导航、点击、表单填写，自动识别验证码并支持人工接管
+- **Computer Use**：基于 xdotool 的 GUI 自动化——鼠标、键盘、截图，完整的视觉反馈循环
 - **技能系统**：支持带有 YAML 前言（frontmatter）的可复用提示词模板，支持热重载
 - **记忆系统**：跨会话的持久化记忆（包含用户、反馈、项目、参考等类型）
 - **会话管理**：基于 SQLite 持久化的对话历史记录
@@ -37,8 +41,8 @@ Skein 是一款桌面应用程序，为具备工具编排能力的 AI 智能体�
 | Crate (板子) | 用途 |
 |-------|---------|
 | `skein-core` | 核心类型、配置、数据库、IPC 接口、密码学 |
-| `skein-agent` | 智能体引擎、会话管理、工具执行、记忆系统、图编排 |
-| `skein-tools` | 工具注册表、内置工具、MCP 集成、数学/天气工具 |
+| `skein-agent` | 智能体引擎、会话管理、工具执行、记忆系统、图编排、工作流引擎 |
+| `skein-tools` | 工具注册表、内置工具、MCP 集成、沙箱工具 |
 | `skein-skills` | 技能发现、加载、前言解析、钩子、权限管理 |
 | `skein-ui/src-tauri` | Tauri 桌面应用后端 |
 
@@ -61,7 +65,7 @@ Skein 是一款桌面应用程序，为具备工具编排能力的 AI 智能体�
 
 ### 依赖项配置
 
-本项目依赖于 [langgraph-rs](https://github.com/Onelevenvy/langgraph-rs)。它已作为 Git 依赖直接配置在 `Cargo.toml` 中，在编译时会自动拉取。
+本项目依赖于 [langgraph-rust](https://github.com/Onelevenvy/langgraph-rust)。它已作为 Git 依赖直接配置在 `Cargo.toml` 中，在编译时会自动拉取。
 
 ### 编译与运行
 
@@ -111,11 +115,12 @@ npm run lint
 
 ## 发展路线 (Roadmap)
 
+- [x] **沙箱环境**：基于云端 Daytona 容器的隔离执行环境，支持 VNC 桌面和人工接管
 - [ ] **工作流**：用于复杂智能体编排的可视化工作流构建器
-- [ ] **多智能体**：支持多个智能体协同完成任务
+- [x] **浏览器工具**：基于 Playwright 的网页自动化，支持验证码检测和人工接管
+- [x] **Computer Use**：基于 xdotool 的 GUI 自动化，支持视觉反馈循环
 - [x] **定时任务**：支持类似 cron 的自动化任务执行
-- [ ] **沙箱环境**：用于执行代码和命令的隔离运行环境
-- [ ] **浏览器工具**：为智能体提供网页浏览与交互能力
+- [ ] **多智能体**：支持多个智能体协同完成任务
 - [ ] **扩展支持**：集成 Claude Code、OpenCode、OpenClaw、Hermes 等第三方智能体
 
 ## 开源协议
