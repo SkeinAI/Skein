@@ -17,52 +17,32 @@ export const ClassifierNode = memo(({ id, data, selected }: NodeProps<BaseNodeDa
 
   return (
     <Box
-      style={{
-        width: 220,
-        borderRadius: 12,
-        border: selected 
-          ? `2px solid var(--skein-accent)` 
-          : `1px solid var(--skein-accent)`,
-        background: 'var(--skein-bg-surface)',
-        boxShadow: selected 
-          ? `0 0 0 3px rgba(21, 90, 239, 0.25)` 
-          : '0 4px 12px rgba(0,0,0,0.03)',
-        overflow: 'visible',
-        cursor: 'pointer',
-        position: 'relative',
-        transition: 'all 0.15s ease',
-      }}
+      className={`skein-workflow-node ${selected ? 'selected' : ''}`}
+      style={{ overflow: 'visible' }}
     >
       <style dangerouslySetInnerHTML={{ __html: handleStyle }} />
       <Box
         style={{
-          padding: '8px 12px',
+          padding: '10px 12px',
           display: 'flex',
           alignItems: 'center',
           gap: 8,
           borderBottom: '1px solid var(--skein-border-subtle)',
-          background: 'var(--skein-bg-surface)',
         }}
       >
         <Box
+          className="skein-node-icon-container"
           style={{
-            width: 22,
-            height: 22,
-            borderRadius: 6,
-            background: 'var(--skein-accent-soft)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0,
+            background: `${cfg.colorHex}15`,
           }}
         >
-          <Icon size={13} stroke={2.5} style={{ color: cfg.colorHex }} />
+          <Icon size={14} stroke={2.5} style={{ color: cfg.colorHex }} />
         </Box>
-        <Text size="xs" fw={700} style={{ color: 'var(--skein-text-bright)', flex: 1, fontSize: 11, lineHeight: 1.2 }} lineClamp={1}>
+        <Text size="xs" fw={700} style={{ color: 'var(--skein-text-bright)', flex: 1, fontSize: 12, lineHeight: 1.2 }} lineClamp={1}>
           {data.label || t(cfg.displayKey, { defaultValue: cfg.display })}
         </Text>
       </Box>
-      <Box style={{ padding: '8px 12px', background: 'var(--skein-bg-surface)' }}>
+      <Box style={{ padding: '8px 12px' }}>
         {categories.map((cat) => {
           const isOthers = cat.category_id === 'others_category';
           const displayIndex = isOthers ? 0 : ++classIdx;
@@ -164,52 +144,32 @@ export const IfElseNode = memo(({ id, data, selected }: NodeProps<BaseNodeData>)
 
   return (
     <Box
-      style={{
-        width: 220,
-        borderRadius: 12,
-        border: selected 
-          ? `2px solid var(--skein-accent)` 
-          : `1px solid var(--skein-accent)`,
-        background: 'var(--skein-bg-surface)',
-        boxShadow: selected 
-          ? `0 0 0 3px rgba(21, 90, 239, 0.25)` 
-          : '0 4px 12px rgba(0,0,0,0.03)',
-        overflow: 'visible',
-        cursor: 'pointer',
-        position: 'relative',
-        transition: 'all 0.15s ease',
-      }}
+      className={`skein-workflow-node ${selected ? 'selected' : ''}`}
+      style={{ overflow: 'visible' }}
     >
       <style dangerouslySetInnerHTML={{ __html: handleStyle }} />
       <Box
         style={{
-          padding: '8px 12px',
+          padding: '10px 12px',
           display: 'flex',
           alignItems: 'center',
           gap: 8,
           borderBottom: '1px solid var(--skein-border-subtle)',
-          background: 'var(--skein-bg-surface)',
         }}
       >
         <Box
+          className="skein-node-icon-container"
           style={{
-            width: 22,
-            height: 22,
-            borderRadius: 6,
-            background: 'var(--skein-accent-soft)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0,
+            background: `${cfg.colorHex}15`,
           }}
         >
-          <Icon size={13} stroke={2.5} style={{ color: cfg.colorHex }} />
+          <Icon size={14} stroke={2.5} style={{ color: cfg.colorHex }} />
         </Box>
-        <Text size="xs" fw={700} style={{ color: 'var(--skein-text-bright)', flex: 1, fontSize: 11, lineHeight: 1.2 }} lineClamp={1}>
+        <Text size="xs" fw={700} style={{ color: 'var(--skein-text-bright)', flex: 1, fontSize: 12, lineHeight: 1.2 }} lineClamp={1}>
           {data.label || cfg.display}
         </Text>
       </Box>
-      <Box style={{ padding: '8px 12px', background: 'var(--skein-bg-surface)' }}>
+      <Box style={{ padding: '8px 12px' }}>
         {cases.map((c, idx) => {
           const isElse = c.case_id === 'false_else';
           return (
@@ -294,3 +254,140 @@ export const IfElseNode = memo(({ id, data, selected }: NodeProps<BaseNodeData>)
     </Box>
   );
 });
+
+export const HumanNode = memo(({ id, data, selected }: NodeProps<BaseNodeData>) => {
+  const cfg = nodeConfig['human'];
+  const Icon = cfg.icon;
+  const { t } = useTranslation();
+  const actions = (data.user_actions as { key: string; label: string }[]) ?? [
+    { key: 'action_1', label: 'Approve' },
+    { key: 'action_2', label: 'Reject' },
+  ];
+
+  // We append TIMEOUT action
+  const allActions = [
+    ...actions,
+    { key: 'TIMEOUT', label: t('workflow.properties.human.timeoutAction', 'TIMEOUT') }
+  ];
+
+  return (
+    <Box
+      className={`skein-workflow-node ${selected ? 'selected' : ''}`}
+      style={{ overflow: 'visible' }}
+    >
+      <style dangerouslySetInnerHTML={{ __html: handleStyle }} />
+      <Box
+        style={{
+          padding: '10px 12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          borderBottom: '1px solid var(--skein-border-subtle)',
+        }}
+      >
+        <Box
+          className="skein-node-icon-container"
+          style={{
+            background: `${cfg.colorHex}15`,
+          }}
+        >
+          <Icon size={14} stroke={2.5} style={{ color: cfg.colorHex }} />
+        </Box>
+        <Text size="xs" fw={700} style={{ color: 'var(--skein-text-bright)', flex: 1, fontSize: 12, lineHeight: 1.2 }} lineClamp={1}>
+          {data.label || t(cfg.displayKey, { defaultValue: cfg.display })}
+        </Text>
+      </Box>
+      <Box style={{ padding: '8px 12px' }}>
+        {allActions.map((act) => {
+          const isTimeout = act.key === 'TIMEOUT';
+          return (
+            <Box key={act.key} style={{ position: 'relative', marginBottom: 6 }}>
+              <Box
+                style={{
+                  padding: '6px 10px',
+                  borderRadius: 8,
+                  background: 'var(--skein-bg-raised, rgba(0, 0, 0, 0.02))',
+                  border: '1px solid var(--skein-border-subtle)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                  marginRight: 6,
+                  overflow: 'hidden',
+                }}
+              >
+                <Text size="xs" fw={700} style={{ fontSize: 10, color: isTimeout ? 'var(--mantine-color-red-6)' : 'var(--skein-text-bright)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {act.key.toUpperCase()}
+                </Text>
+                {act.label && (
+                  <Text size="xs" c="dimmed" style={{ fontSize: 10, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {act.label}
+                  </Text>
+                )}
+              </Box>
+              <div 
+                className="skein-handle-container"
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: -40,
+                  transform: 'translateY(-50%)',
+                  width: 32,
+                  height: 20,
+                  zIndex: 10,
+                }}
+              >
+                <Handle
+                  type="source"
+                  position={Position.Right}
+                  id={act.key}
+                  style={{
+                    background: 'var(--skein-bg-surface)',
+                    border: `2px solid var(--skein-accent)`,
+                    width: 8,
+                    height: 8,
+                    top: '50%',
+                    left: 0,
+                    transform: 'translateY(-50%)',
+                  }}
+                />
+                <div className="skein-handle-plus">
+                  <ActionIcon
+                    size="16px"
+                    radius="xl"
+                    variant="filled"
+                    style={{
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                      cursor: 'pointer',
+                      background: 'var(--skein-accent, #155aef)',
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      if (data.onHandlePlusClick) {
+                        data.onHandlePlusClick(id, act.key, e.clientX, e.clientY);
+                      }
+                    }}
+                  >
+                    <IconPlus size={10} stroke={3} />
+                  </ActionIcon>
+                </div>
+              </div>
+            </Box>
+          );
+        })}
+      </Box>
+      <Handle
+        type="target"
+        position={Position.Left}
+        id="left"
+        style={{
+          background: 'var(--skein-bg-surface)',
+          border: `2px solid var(--skein-accent)`,
+          width: 8,
+          height: 8,
+        }}
+      />
+    </Box>
+  );
+});
+
