@@ -1226,6 +1226,7 @@ dependencies = [
  "skein-core",
  "skein-skills",
  "skein-tools",
+ "skein-workflow",
  "futures",
  "glob",
  "is-terminal",

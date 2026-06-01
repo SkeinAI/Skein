@@ -68,3 +68,9 @@ crates/skein-app/
 
 legacy/*
 skein-data/imported_skills/*
+crates/skein-agent/*.db
+crates/skein-agent/*.db-shm
+crates/skein-agent/*.db-wal
+crates/skein-agent/mock_db_path-wal
+crates/skein-agent/mock_db_path-shm
+crates/skein-agent/mock_db_path
