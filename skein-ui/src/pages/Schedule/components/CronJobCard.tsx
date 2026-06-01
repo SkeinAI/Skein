@@ -59,31 +59,41 @@ export function CronJobCard({
     <Box
       p="md"
       style={{
-        borderRadius: 14,
+        borderRadius: 18,
         border: '1px solid var(--skein-border-subtle)',
-        background: 'var(--skein-bg-surface)',
+        background: 'var(--skein-bg-raised)',
         display: 'flex',
         flexDirection: 'column',
-        gap: 12,
-        transition: 'all 0.2s ease',
+        gap: 14,
+        transition: 'transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease',
         position: 'relative',
+        boxShadow: '0 8px 24px rgba(15, 23, 42, 0.05)',
       }}
-      className="hover-card-lift"
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-2px)';
+        e.currentTarget.style.borderColor = 'var(--skein-accent)';
+        e.currentTarget.style.boxShadow = '0 14px 36px rgba(21, 90, 239, 0.14)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.borderColor = 'var(--skein-border-subtle)';
+        e.currentTarget.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.05)';
+      }}
     >
       {/* 卡片头：图标 + 名称 + 菜单 */}
       <Group gap="sm" wrap="nowrap" justify="space-between">
         <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
           <Avatar
-            size={40}
-            radius="xl"
+            size={46}
+            radius={14}
             style={{
-              background: job.enabled ? 'var(--skein-accent)' : 'var(--skein-bg-hover)',
+              background: job.enabled ? 'var(--skein-accent-soft)' : 'var(--skein-bg-hover)',
+              color: job.enabled ? 'var(--skein-accent)' : 'var(--skein-text-dim)',
               fontSize: 18,
               flexShrink: 0,
-              boxShadow: job.enabled ? '0 2px 6px rgba(21, 90, 239, 0.2)' : 'none',
             }}
           >
-            <IconCalendarTime size={20} color={job.enabled ? '#fff' : 'var(--skein-text-dim)'} />
+            <IconCalendarTime size={22} />
           </Avatar>
           <Box style={{ minWidth: 0 }}>
             <Group gap={4} wrap="nowrap">
@@ -165,7 +175,7 @@ export function CronJobCard({
           padding: '7px 10px',
           background: 'var(--skein-bg-deepest)',
           border: '1px solid var(--skein-border-subtle)',
-          borderRadius: 8,
+          borderRadius: 12,
         }}
       >
         <Text
@@ -217,6 +227,7 @@ export function CronJobCard({
             variant="light"
             color="blue"
             loading={runNowPending}
+            style={{ background: 'var(--skein-accent-soft)' }}
           >
             <IconPlayerPlay size={15} fill="currentColor" />
           </ActionIcon>

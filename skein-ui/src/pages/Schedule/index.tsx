@@ -87,7 +87,7 @@ export function SchedulePage() {
         flexDirection: 'column',
         overflow: 'hidden',
         minWidth: 0,
-        background: 'var(--skein-bg-base)',
+        background: 'var(--skein-bg-surface)',
         borderRadius: '16px',
         border: '1px solid var(--skein-border-subtle)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)',
