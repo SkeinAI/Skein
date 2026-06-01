@@ -1,6 +1,6 @@
 import { Box, Divider } from '@mantine/core';
-import { useUiStore } from '../../../store/uiStore';
-import SettingsModal from '../../Settings';
+import { useUiStore } from '@/store/uiStore';
+import SettingsModal from '@/components/Settings';
 import { SkeinLogo } from './SkeinLogo';
 import { NavigationList } from './NavigationList';
 import { WorkspaceSection } from './WorkspaceSection';
