@@ -9,6 +9,7 @@ repository.workspace = true
 [dependencies]
 skein-core.workspace   = true
 skein-tools.workspace  = true
+log.workspace          = true
 
 serde.workspace        = true
 serde_json.workspace   = true
