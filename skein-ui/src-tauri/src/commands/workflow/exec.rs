@@ -14,7 +14,7 @@ use langgraph_checkpoint::checkpoint::memory::InMemorySaver;
 use langgraph_checkpoint_sqlite::SqliteSaver;
 use langgraph_prebuilt::BaseChatModel;
 
-use skein_agent::workflow_graph::{build_workflow_graph, WorkflowNodeContext, WorkflowSink};
+use skein_workflow::{build_workflow_graph, WorkflowNodeContext, WorkflowSink};
 use skein_core::model_factory::{CachedModelFactory, ModelFactory};
 use skein_tools::all_tools;
 use crate::SharedDbManager;

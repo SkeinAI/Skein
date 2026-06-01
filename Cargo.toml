@@ -5,6 +5,7 @@ members = [
     "crates/skein-tools",
     "crates/skein-skills",
     "crates/skein-agent",
+    "crates/skein-workflow",
     "skein-ui/src-tauri",
     "workspace-hack",
 ]
@@ -26,6 +27,7 @@ skein-core      = { path = "crates/skein-core" }
 skein-tools     = { path = "crates/skein-tools" }
 skein-skills    = { path = "crates/skein-skills" }
 skein-agent     = { path = "crates/skein-agent" }
+skein-workflow  = { path = "crates/skein-workflow" }
 
 # LangGraph (github path to Rust reimplementation)
 langgraph                    = { git = "https://github.com/Onelevenvy/langgraph-rust" }
