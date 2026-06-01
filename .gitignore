@@ -67,3 +67,4 @@ crates/skein-app/
 
 
 legacy/*
+skein-data/imported_skills/*

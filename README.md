@@ -8,6 +8,7 @@ A multi AI agent desktop application built with Rust and Tauri.
 ![Skein Chat Screenshot](./docs/resources/chat.png)
 ![Skein Automation Screenshot](./docs/resources/chedule.png)
 ![Skein Assistants Screenshot](./docs/resources/assistants.png)
+![Skein Workflow Screenshot](./docs/resources/workflow.png)
 
 
 > **Note**: This project is built on top of [langgraph-rust](https://github.com/Onelevenvy/langgraph-rust), which is my personal Rust implementation of the LangGraph framework.
