@@ -1214,193 +1214,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "skein-agent"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "base64 0.22.1",
- "chrono",
- "crossterm",
- "dirs",
- "skein-core",
- "skein-skills",
- "skein-tools",
- "skein-workflow",
- "futures",
- "glob",
- "is-terminal",
- "langgraph",
- "langgraph-checkpoint",
- "langgraph-checkpoint-sqlite",
- "langgraph-derive",
- "langgraph-prebuilt",
- "langgraph-providers",
- "log",
- "mockall",
- "regex",
- "rstest",
- "serde",
- "serde_json",
- "serde_yaml",
- "serial_test",
- "sqlx",
- "tempfile",
- "thiserror 2.0.18",
- "tokio",
- "tokio-stream",
- "tokio-test",
- "uuid",
- "wiremock",
- "workspace-hack",
-]
-
-[[package]]
-name = "skein-core"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "base64 0.22.1",
- "chrono",
- "dirs",
- "glob",
- "hostname",
- "langgraph-prebuilt",
- "langgraph-providers",
- "libc",
- "log",
- "regex",
- "reqwest 0.12.28",
- "ring",
- "rstest",
- "serde",
- "serde_json",
- "serde_yaml",
- "sqlx",
- "tempfile",
- "thiserror 2.0.18",
- "tokio",
- "tokio-test",
- "toml 1.1.2+spec-1.1.0",
- "uuid",
- "winreg 0.52.0",
- "wiremock",
- "workspace-hack",
-]
-
-[[package]]
-name = "skein-desktop"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "base64 0.22.1",
- "chrono",
- "skein-agent",
- "skein-core",
- "skein-skills",
- "skein-tools",
- "skein-workflow",
- "langgraph",
- "langgraph-checkpoint",
- "langgraph-checkpoint-sqlite",
- "langgraph-prebuilt",
- "langgraph-providers",
- "log",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "sqlx",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-log",
- "tauri-plugin-shell",
- "tokio",
- "tokio-stream",
- "workspace-hack",
-]
-
-[[package]]
-name = "skein-skills"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "dirs",
- "skein-core",
- "skein-tools",
- "futures",
- "glob",
- "libc",
- "log",
- "notify",
- "regex",
- "rstest",
- "serde",
- "serde_json",
- "serde_yaml",
- "serial_test",
- "tempfile",
- "thiserror 2.0.18",
- "tokio",
- "unicode-width",
- "workspace-hack",
-]
-
-[[package]]
-name = "skein-tools"
-version = "0.2.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "base64 0.22.1",
- "flate2",
- "skein-core",
- "futures",
- "glob",
- "ignore",
- "langgraph-checkpoint",
- "langgraph-derive",
- "langgraph-prebuilt",
- "lru",
- "md-5",
- "meval",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "serde_yaml",
- "tar",
- "tempfile",
- "thiserror 2.0.18",
- "tokio",
- "workspace-hack",
-]
-
-[[package]]
-name = "skein-workflow"
-version = "0.2.0"
-dependencies = [
- "chrono",
- "skein-core",
- "skein-skills",
- "skein-tools",
- "langgraph",
- "langgraph-checkpoint",
- "langgraph-checkpoint-sqlite",
- "langgraph-derive",
- "langgraph-prebuilt",
- "log",
- "regex",
- "serde",
- "serde_json",
- "sqlx",
- "tokio",
- "tokio-stream",
- "workspace-hack",
-]
-
-[[package]]
 name = "flume"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4788,6 +4601,193 @@ name = "siphasher"
 version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ee5873ec9cce0195efcb7a4e9507a04cd49aec9c83d0389df45b1ef7ba2e649"
+
+[[package]]
+name = "skein-agent"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "base64 0.22.1",
+ "chrono",
+ "crossterm",
+ "dirs",
+ "futures",
+ "glob",
+ "is-terminal",
+ "langgraph",
+ "langgraph-checkpoint",
+ "langgraph-checkpoint-sqlite",
+ "langgraph-derive",
+ "langgraph-prebuilt",
+ "langgraph-providers",
+ "log",
+ "mockall",
+ "regex",
+ "rstest",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "serial_test",
+ "skein-core",
+ "skein-skills",
+ "skein-tools",
+ "skein-workflow",
+ "sqlx",
+ "tempfile",
+ "thiserror 2.0.18",
+ "tokio",
+ "tokio-stream",
+ "tokio-test",
+ "uuid",
+ "wiremock",
+ "workspace-hack",
+]
+
+[[package]]
+name = "skein-core"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "base64 0.22.1",
+ "chrono",
+ "dirs",
+ "glob",
+ "hostname",
+ "langgraph-prebuilt",
+ "langgraph-providers",
+ "libc",
+ "log",
+ "regex",
+ "reqwest 0.12.28",
+ "ring",
+ "rstest",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sqlx",
+ "tempfile",
+ "thiserror 2.0.18",
+ "tokio",
+ "tokio-test",
+ "toml 1.1.2+spec-1.1.0",
+ "uuid",
+ "winreg 0.52.0",
+ "wiremock",
+ "workspace-hack",
+]
+
+[[package]]
+name = "skein-desktop"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "base64 0.22.1",
+ "chrono",
+ "langgraph",
+ "langgraph-checkpoint",
+ "langgraph-checkpoint-sqlite",
+ "langgraph-prebuilt",
+ "langgraph-providers",
+ "log",
+ "reqwest 0.12.28",
+ "serde",
+ "serde_json",
+ "skein-agent",
+ "skein-core",
+ "skein-skills",
+ "skein-tools",
+ "skein-workflow",
+ "sqlx",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-log",
+ "tauri-plugin-shell",
+ "tokio",
+ "tokio-stream",
+ "workspace-hack",
+]
+
+[[package]]
+name = "skein-skills"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "dirs",
+ "futures",
+ "glob",
+ "libc",
+ "log",
+ "notify",
+ "regex",
+ "rstest",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "serial_test",
+ "skein-core",
+ "skein-tools",
+ "tempfile",
+ "thiserror 2.0.18",
+ "tokio",
+ "unicode-width",
+ "workspace-hack",
+]
+
+[[package]]
+name = "skein-tools"
+version = "0.2.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "base64 0.22.1",
+ "flate2",
+ "futures",
+ "glob",
+ "ignore",
+ "langgraph-checkpoint",
+ "langgraph-derive",
+ "langgraph-prebuilt",
+ "lru",
+ "md-5",
+ "meval",
+ "reqwest 0.12.28",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "skein-core",
+ "tar",
+ "tempfile",
+ "thiserror 2.0.18",
+ "tokio",
+ "workspace-hack",
+]
+
+[[package]]
+name = "skein-workflow"
+version = "0.2.0"
+dependencies = [
+ "chrono",
+ "langgraph",
+ "langgraph-checkpoint",
+ "langgraph-checkpoint-sqlite",
+ "langgraph-derive",
+ "langgraph-prebuilt",
+ "log",
+ "regex",
+ "serde",
+ "serde_json",
+ "skein-core",
+ "skein-skills",
+ "skein-tools",
+ "sqlx",
+ "tokio",
+ "tokio-stream",
+ "workspace-hack",
+]
 
 [[package]]
 name = "slab"

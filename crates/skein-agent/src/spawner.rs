@@ -17,7 +17,7 @@ use crate::engine::AgentEngine;
 use crate::sinks::null_sink::NullSink;
 use crate::sinks::OutputSink;
 
-// Re-export from skein-types — single source of truth
+// Re-export from skein-core — single source of truth
 pub use skein_core::types::spawner::{ForkOverrides, Spawner, SubAgentConfig, SubAgentResult};
 
 /// Spawns independent child agents that share the parent's LLM provider.

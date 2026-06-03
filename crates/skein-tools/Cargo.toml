@@ -3,7 +3,7 @@ workspace = true
 
 [package]
 name = "skein-tools"
-description = "Built-in agent tools for skein (Read, Write, Edit, Bash, Grep, Glob, Spawn)"
+description = "Built-in agent tools for Skein (Read, Write, Edit, Bash, Grep, Glob, Spawn)"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

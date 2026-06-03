@@ -18,7 +18,7 @@ pub mod tools;
 pub mod spawner;
 pub mod http_recording;
 
-// Re-export the skills crate so existing callers (skein-cli, tests) can use
+// Re-export the skills crate so existing callers (skein desktop, tests) can use
 // `crate::skills::` without changing their import paths.
 pub use skein_skills as skills;
 pub mod memory;

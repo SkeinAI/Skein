@@ -1,6 +1,6 @@
 use crate::types::SkillMetadata;
 
-// Re-export from skein-types so callers can use a single import path
+// Re-export from skein-core so callers can use a single import path
 pub use skein_core::types::skill_types::{effort_to_string, ContextModifier};
 
 /// Build a ContextModifier from skill metadata. Returns None if no overrides are specified.

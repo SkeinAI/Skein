@@ -3,7 +3,7 @@ workspace = true
 
 [package]
 name = "skein-agent"
-description = "Agent engine, session management, output sinks, and orchestration for skein"
+description = "Agent engine, session management, output sinks, and orchestration for Skein"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-// Re-export EffortLevel from skein-types (single source of truth)
+// Re-export EffortLevel from skein-core (single source of truth)
 pub use skein_core::types::skill_types::EffortLevel;
 
 /// Raw fields from skill frontmatter (YAML deserialization target).
@@ -88,7 +88,7 @@ pub enum SkillSource {
     Bundled,
     /// Loaded via MCP ipc_interface
     Mcp,
-    /// .skein/commands/ (legacy compatibility)
+    /// .skein/commands/ or .skein/commands/ (legacy)
     Legacy,
 }
 

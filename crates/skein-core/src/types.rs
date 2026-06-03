@@ -1,5 +1,5 @@
 // Pure, provider-neutral data types shared across all skein crates.
-// No dependencies on other skein-* crates.
+// No dependencies on other skein crates.
 
 pub mod compact;
 pub mod file_state;

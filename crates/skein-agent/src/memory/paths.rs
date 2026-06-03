@@ -17,7 +17,7 @@ pub const ENTRYPOINT_NAME: &str = "MEMORY.md";
 const MAX_SANITIZED_LENGTH: usize = 200;
 
 /// Environment variable to override the memory base directory.
-const MEMORY_DIR_ENV: &str = "skein_MEMORY_DIR";
+const MEMORY_DIR_ENV: &str = "SKEIN_MEMORY_DIR";
 
 // ---------------------------------------------------------------------------
 // Base directory resolution
@@ -26,8 +26,8 @@ const MEMORY_DIR_ENV: &str = "skein_MEMORY_DIR";
 /// Returns the base directory for memory storage.
 ///
 /// Resolution order:
-///   1. `skein_MEMORY_DIR` environment variable (explicit override)
-///   2. `app_config_dir()` from `skein-config` (platform-aware default)
+///   1. `SKEIN_MEMORY_DIR` environment variable (explicit override)
+///   2. `app_config_dir()` from `skein-core` (platform-aware default)
 ///
 /// Returns `None` only when both the env var is unset AND the platform
 /// cannot determine a config directory (e.g. no home directory).

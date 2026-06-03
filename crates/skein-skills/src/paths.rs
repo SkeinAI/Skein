@@ -85,6 +85,9 @@ pub fn workspace_skills_dir() -> PathBuf {
 // Project-level directories (walk up from cwd)
 // ---------------------------------------------------------------------------
 
+/// Project-level config directory name(s) scanned when walking up from cwd.
+pub const PROJECT_DIR_NAMES: &[&str] = &[".skein"];
+
 /// Find all project-level `.skein/skills/` directories by walking up from
 /// `cwd` to the nearest git root (or home directory), returning deepest-first.
 ///
@@ -106,7 +109,7 @@ pub fn project_commands_dirs(cwd: &Path) -> Vec<PathBuf> {
 pub fn additional_skills_dirs(add_dirs: &[PathBuf]) -> Vec<PathBuf> {
     add_dirs
         .iter()
-        .map(|d| d.join(".skein").join("skills"))
+        .flat_map(|d| PROJECT_DIR_NAMES.iter().map(move |name| d.join(name).join("skills")))
         .filter(|p| p.is_dir())
         .collect()
 }
@@ -143,9 +146,11 @@ fn walk_up_dirs(cwd: &Path, subdir: &str) -> Vec<PathBuf> {
     let mut current = cwd.to_path_buf();
 
     loop {
-        let candidate = current.join(".skein").join(subdir);
-        if candidate.is_dir() {
-            dirs.push(candidate);
+        for dir_name in PROJECT_DIR_NAMES {
+            let candidate = current.join(dir_name).join(subdir);
+            if candidate.is_dir() {
+                dirs.push(candidate);
+            }
         }
 
         // Stop if we've reached the boundary or the filesystem root

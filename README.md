@@ -13,10 +13,6 @@ A multi AI agent desktop application built with Rust and Tauri.
 
 > **Note**: This project is built on top of [langgraph-rust](https://github.com/Onelevenvy/langgraph-rust), which is my personal Rust implementation of the LangGraph framework.
 
-> **Refactoring History**: Skein has been completely rewritten from the ground up. The original version was a Python-based application using LangGraph, LangChain, and FastAPI as the backend. The current version is a native desktop application with a Rust backend, powered by Tauri for the desktop shell. This rewrite brings significant improvements in performance, reliability, and user experience.
-
-> **Legacy Code**: The original Python codebase is preserved in the `legacy/python` branch for reference.
-
 ## Overview
 
 Skein is a desktop application that provides an interactive interface for AI agents with tool orchestration, sandbox execution, visual workflow, and browser/computer-use capabilities. It supports multiple LLM providers and features a rich set of built-in tools, skills system, and memory management.

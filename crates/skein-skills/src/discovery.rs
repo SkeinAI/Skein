@@ -80,27 +80,30 @@ impl RuntimeDiscovery {
                     break;
                 }
 
-                let skill_dir = current.join(".skein").join("skills");
+                // Check the project-level `.skein/skills` layout(s).
+                for dir_name in crate::paths::PROJECT_DIR_NAMES {
+                    let skill_dir = current.join(dir_name).join("skills");
 
-                if !self.checked_dirs.contains(&skill_dir) {
-                    self.checked_dirs.insert(skill_dir.clone());
+                    if !self.checked_dirs.contains(&skill_dir) {
+                        self.checked_dirs.insert(skill_dir.clone());
 
-                    if tokio::fs::metadata(&skill_dir).await.is_ok() {
-                        // Check if the containing directory (currentDir = skill_dir's
-                        // grandparent) is gitignored. Aligns with TS L892 which passes
-                        // `currentDir` (not skillDir) to isPathGitignored (C4).
-                        let containing_dir = skill_dir
-                            .parent() // .skein/
-                            .and_then(|p| p.parent()) // currentDir
-                            .unwrap_or(&current);
+                        if tokio::fs::metadata(&skill_dir).await.is_ok() {
+                            // Check if the containing directory (currentDir = skill_dir's
+                            // grandparent) is gitignored. Aligns with TS L892 which passes
+                            // `currentDir` (not skillDir) to isPathGitignored (C4).
+                            let containing_dir = skill_dir
+                                .parent() // .skein/
+                                .and_then(|p| p.parent()) // currentDir
+                                .unwrap_or(&current);
 
-                        if is_path_gitignored(containing_dir, resolved_cwd).await {
-                            eprintln!(
-                                "[skills] Skipped gitignored skills dir: {}",
-                                skill_dir.display()
-                            );
-                        } else {
-                            new_dirs.push(skill_dir);
+                            if is_path_gitignored(containing_dir, resolved_cwd).await {
+                                eprintln!(
+                                    "[skills] Skipped gitignored skills dir: {}",
+                                    skill_dir.display()
+                                );
+                            } else {
+                                new_dirs.push(skill_dir);
+                            }
                         }
                     }
                 }

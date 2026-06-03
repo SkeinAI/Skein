@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
-/// Default install root name.
-const DEFAULT_INSTALL_ROOT: &str = "skein-data";
+/// Install root directory name.
+const INSTALL_ROOT: &str = "skein-data";
 /// Default workspaces directory name.
 const DEFAULT_WORKSPACE_DIR: &str = "workspace";
 
@@ -20,7 +20,7 @@ pub fn install_root() -> PathBuf {
         return abs_p.parent().map(|parent| parent.to_path_buf()).unwrap_or(abs_p);
     }
 
-    // 2. 获取可执行文件所在的目录（实现“安装目录”方案）
+    // 2. 获取可执行文件所在的目录（实现"安装目录"方案）
     let mut base_dir = std::env::current_exe()
         .ok()
         .and_then(|p| p.parent().map(|parent| parent.to_path_buf()))
@@ -39,7 +39,7 @@ pub fn install_root() -> PathBuf {
         }
     }
 
-    base_dir.join(DEFAULT_INSTALL_ROOT)
+    base_dir.join(INSTALL_ROOT)
 }
 
 /// Get the workspace root directory containing user workspaces.

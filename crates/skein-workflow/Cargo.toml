@@ -3,7 +3,7 @@ workspace = true
 
 [package]
 name = "skein-workflow"
-description = "Workflow graph engine and orchestration for skein"
+description = "Workflow graph engine and orchestration for Skein"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
