@@ -1,0 +1,7 @@
+{
+  "toolbar": {
+    "back": "Volver",
+    "environmentVariables": "Alternar variables de entorno",
+    "debugRun": "Alternar ejecución de depuración"
+  }
+}
