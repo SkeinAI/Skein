@@ -1,0 +1,7 @@
+{
+  "toolbar": {
+    "back": "Revenir en arrière",
+    "environmentVariables": "Afficher/Masquer les variables d'environnement",
+    "debugRun": "Activer/Désactiver le débogage"
+  }
+}

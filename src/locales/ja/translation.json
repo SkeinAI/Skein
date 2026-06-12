@@ -1,0 +1,7 @@
+{
+  "toolbar": {
+    "back": "戻る",
+    "environmentVariables": "環境変数の切り替え",
+    "debugRun": "デバッグ実行の切り替え"
+  }
+}

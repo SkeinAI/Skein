@@ -1,0 +1,7 @@
+{
+  "toolbar": {
+    "back": "Go back",
+    "environmentVariables": "Toggle environment variables",
+    "debugRun": "Toggle debug run"
+  }
+}

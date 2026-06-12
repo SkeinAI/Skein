@@ -1,0 +1,7 @@
+{
+  "toolbar": {
+    "back": "返回",
+    "environmentVariables": "切换环境变量",
+    "debugRun": "切换调试运行"
+  }
+}

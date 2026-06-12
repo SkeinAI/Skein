@@ -1,0 +1,7 @@
+{
+  "toolbar": {
+    "back": "Zurück",
+    "environmentVariables": "Umgebungsvariablen umschalten",
+    "debugRun": "Debug-Ausführung umschalten"
+  }
+}
