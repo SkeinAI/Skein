@@ -1,0 +1,10 @@
+{
+  "debug": {
+    "status": {
+      "success": "SUCCESS",
+      "running": "RUNNING",
+      "failed": "FAILED",
+      "unknown": "UNKNOWN"
+    }
+  }
+}
