@@ -20,8 +20,8 @@ pub async fn destroy_active_sandbox(db: &DbManager) -> anyhow::Result<()> {
     };
 
     let client = reqwest::Client::new();
-    let base = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     if let Some(ws_path) = crate::get_workspace_dir() {
         if let Err(e) = crate::daytona::sync::sync_down(db, &sandbox_id, &ws_path).await {
@@ -74,8 +74,8 @@ pub async fn get_or_create_active_sandbox(db: &DbManager) -> anyhow::Result<Stri
     crate::emit_info(&skein_core::tr("正在向云端申请启动沙盒...", "Requesting to start sandbox from the cloud..."));
     
     let client = reqwest::Client::new();
-    let base = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     let workspace_id = crate::get_workspace_dir()
         .and_then(|p| p.file_name().map(|n| n.to_string_lossy().to_string()))
@@ -279,8 +279,8 @@ pub async fn get_or_create_active_sandbox(db: &DbManager) -> anyhow::Result<Stri
 
 pub async fn check_sandbox_alive(cfg: &SandboxConfig, id: &str) -> bool {
     let client = reqwest::Client::new();
-    let base = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
     let get_url = format!("{}/api/sandbox/{}", base, id);
 
     let res = client.get(&get_url)
@@ -312,8 +312,8 @@ pub async fn set_sandbox_public(
     is_public: bool,
 ) -> anyhow::Result<()> {
     let client = reqwest::Client::new();
-    let base = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     let url = format!("{}/api/sandbox/{}/public/{}", base, sandbox_id, is_public);
     
