@@ -4,8 +4,8 @@ use serde_json::Value;
 
 pub async fn get_or_create_volume(cfg: &SandboxConfig, workspace_id: &str) -> anyhow::Result<String> {
     let client = reqwest::Client::new();
-    let base = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
     let vol_name = format!("skein-vol-{}", workspace_id);
 
     let get_url = format!("{}/api/volumes", base);

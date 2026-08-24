@@ -11,8 +11,8 @@ pub async fn start_computer_use_in_sandbox(
     let cfg = get_sandbox_config(db).await
         .ok_or_else(|| anyhow::anyhow!(skein_core::tr("云端 Daytona 沙箱未配置或未启用", "Cloud Daytona sandbox not configured or enabled")))?;
 
-    let api_url = cfg.api_url.as_ref().unwrap().trim_end_matches('/');
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let api_url = cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?.trim_end_matches('/');
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     let urls = if api_url.contains("app.daytona.io") {
         vec![
@@ -88,8 +88,8 @@ pub async fn check_computer_use_status(
     let cfg = get_sandbox_config(db).await
         .ok_or_else(|| anyhow::anyhow!(skein_core::tr("云端 Daytona 沙箱未配置或未启用", "Cloud Daytona sandbox not configured or enabled")))?;
 
-    let api_url = cfg.api_url.as_ref().unwrap().trim_end_matches('/');
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let api_url = cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?.trim_end_matches('/');
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     let urls = if api_url.contains("app.daytona.io") {
         vec![
@@ -215,8 +215,8 @@ pub async fn get_sandbox_vnc_url(
         .ok_or_else(|| anyhow::anyhow!(skein_core::tr("云端 Daytona 沙箱未配置或未启用", "Cloud Daytona sandbox not configured or enabled")))?;
 
     let client = reqwest::Client::new();
-    let base = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     let url = format!("{}/api/sandbox/{}/ports/{}/preview-url", base, sandbox_id, WEBSOCKIFY_PORT);
     let resp = client.get(&url)

@@ -11,8 +11,8 @@ pub async fn create_playwright_snapshot(
         .ok_or_else(|| anyhow::anyhow!(skein_core::tr("云端 Daytona 沙箱未配置或未启用", "Cloud Daytona sandbox not configured or enabled")))?;
 
     let client = reqwest::Client::new();
-    let base_url = get_api_base(cfg.api_url.as_ref().unwrap());
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let base_url = get_api_base(cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?);
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
 
     // 1. 发送 POST /api/snapshots 请求
     crate::emit_info(&skein_core::tr(

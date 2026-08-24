@@ -31,8 +31,8 @@ pub async fn execute_command_in_sandbox(
     let cfg = get_sandbox_config(db).await
         .ok_or_else(|| anyhow::anyhow!("云端 Daytona 沙箱未配置或未启用"))?;
 
-    let api_url = cfg.api_url.as_ref().unwrap().trim_end_matches('/');
-    let api_key = cfg.api_key.as_ref().unwrap();
+    let api_url = cfg.api_url.as_ref().ok_or_else(|| "Daytona api_url is not configured".to_string())?.trim_end_matches('/');
+    let api_key = cfg.api_key.as_ref().ok_or_else(|| "Daytona api_key is not configured".to_string())?;
     
     // 生成 Toolbox 执行请求 of URL list
     let urls = if api_url.contains("app.daytona.io") {
